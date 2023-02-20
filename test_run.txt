@@ -1,0 +1,66 @@
+(venv) [vio@vio-aspirees1572 python_blockchain_implementation_demo]$ ipython
+Python 3.10.9 (main, Dec 19 2022, 17:35:49) [GCC 12.2.0]
+Type 'copyright', 'credits' or 'license' for more information
+IPython 8.10.0 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import blockchain
+
+In [2]: bc = blockchain.Blockchain()
+
+In [3]: bc.chain
+Out[3]: 
+[{'previous_hash': '0',
+  'index': 0,
+  'timestamp': '2023-02-20 10:42:23.177561',
+  'data': 'this is the genesis block',
+  'proof': 51357}]
+
+In [4]: bc.mine_block("hi")
+Out[4]: 
+{'previous_hash': '0000e8befe82de8ad2c83bdd4c8d75844fe2260d74121d659a12391a2ee96cc4',
+ 'index': 1,
+ 'timestamp': '2023-02-20 10:42:38.862689',
+ 'data': 'hi',
+ 'proof': 1850}
+
+In [5]: bc.is_chain_valid()
+Out[5]: True
+
+In [6]: bc.chain
+Out[6]: 
+[{'previous_hash': '0',
+  'index': 0,
+  'timestamp': '2023-02-20 10:42:23.177561',
+  'data': 'this is the genesis block',
+  'proof': 51357},
+ {'previous_hash': '0000e8befe82de8ad2c83bdd4c8d75844fe2260d74121d659a12391a2ee96cc4',
+  'index': 1,
+  'timestamp': '2023-02-20 10:42:38.862689',
+  'data': 'hi',
+  'proof': 1850}]
+
+In [7]: bc.mine_block("hellow")
+Out[7]: 
+{'previous_hash': '0000d2fbeb7fdd4ad4e2a8c8ded28da68f41637a78f9752db34a5c787807c046',
+ 'index': 2,
+ 'timestamp': '2023-02-20 10:43:19.392256',
+ 'data': 'hellow',
+ 'proof': 41283}
+
+In [8]: bc.chain
+Out[8]: 
+[{'previous_hash': '0',
+  'index': 0,
+  'timestamp': '2023-02-20 10:42:23.177561',
+  'data': 'this is the genesis block',
+  'proof': 51357},
+ {'previous_hash': '0000e8befe82de8ad2c83bdd4c8d75844fe2260d74121d659a12391a2ee96cc4',
+  'index': 1,
+  'timestamp': '2023-02-20 10:42:38.862689',
+  'data': 'hi',
+  'proof': 1850},
+ {'previous_hash': '0000d2fbeb7fdd4ad4e2a8c8ded28da68f41637a78f9752db34a5c787807c046',
+  'index': 2,
+  'timestamp': '2023-02-20 10:43:19.392256',
+  'data': 'hellow',
+  'proof': 41283}]

@@ -6,11 +6,10 @@ class Blockchain:
 
     def __init__(self) -> None:
         self.chain = list()
-        genesis_block = self._create_block(
+        genesis_block = self._proof_of_work(
             previous_hash="0",
-            index=0,
-            data="this is the genesis block",
-            proof=0,)
+            index= 0,
+            data="this is the genesis block")
         self.chain.append(genesis_block)
 
     def mine_block(self,data:str) -> dict:
@@ -67,7 +66,7 @@ class Blockchain:
         block_index = 0
 
         while block_index < len(self.chain)-1:
-            next_block = self.chain(block_index+1)
+            next_block = self.chain[block_index+1]
             hash_val_curr_block = self._hash(current_block)
 
             if (next_block["previous_hash"]!=hash_val_curr_block) or (hash_val_curr_block[:4]!="0000"):
